@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Student extends Person {
 
-    Float gpa;
-    String major;
+    private Float gpa;
+    private String major;
 
     public Student() {
     }
