@@ -47,7 +47,7 @@ public class Student extends Person {
                 this.dateOfBirth = dateFormat.parse(dobInput);
                 break;
             } catch (ParseException e) {
-                System.out.println("Wrong Fomat!");
+                System.out.println("Wrong Format!");
             }
         }
         System.out.print("Enter GPA: ");
