@@ -33,7 +33,7 @@ public class Student extends Person {
         this.major = major;
     }
 
-    void addStudent() {
+    public void addStudent() {
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         System.out.print("Enter ID: ");
