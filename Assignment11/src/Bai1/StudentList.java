@@ -24,7 +24,7 @@ public class StudentList {
 
     Scanner sc = new Scanner(System.in);
 
-    void addStudent(Student student) {
+    public void addStudent(Student student) {
         System.out.print("Enter numbers of student to add: ");
         int num = sc.nextInt();
         for (int i = 0; i < num; i++) {
@@ -35,7 +35,7 @@ public class StudentList {
         }
     }
 
-    void deleteStudent(String id) {
+    public void deleteStudent(String id) {
         for (int i = 0; i < this.studentList.size(); i++) {
             if (studentList.get(i).getId().equals(id)) {
                 studentList.remove(i);
@@ -57,7 +57,7 @@ public class StudentList {
         return null;
     }
 
-    void displayAllStudents() {
+    public void displayAllStudents() {
         if (studentList.isEmpty()) {
             System.out.println("Student list is empty");
         } else {
