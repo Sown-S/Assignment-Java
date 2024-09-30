@@ -1,0 +1,5 @@
+Average temp = 29,9
+4 days above average
+Temperatures: [34, 35, 29, 30, 31, 26, 24]
+Two coldest days: 24, 26
+Two hottest days: 35, 34
