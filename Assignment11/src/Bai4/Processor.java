@@ -16,9 +16,10 @@ public class Processor {
             System.out.println("3. Update person by id.");
             System.out.println("4. Delete person by id.");
             System.out.println("5. Display all student and teacher.");
-            System.out.println("6. Find the student with the highest GPA.");
-            System.out.println("7. Find the teacher by department.");
-            System.out.println("8. Exit!");
+            System.out.println("6. Find the person by id.");
+            System.out.println("7. Find the student with the highest GPA.");
+            System.out.println("8. Find the teacher by department.");
+            System.out.println("9. Exit!");
             System.out.print("Your choose: ");
             choose = sc.nextInt();
             sc.nextLine();
@@ -53,19 +54,25 @@ public class Processor {
                 break;
 
                 case 6: {
+                    System.out.print("Enter id:");
+                    String id = sc.nextLine();
+                    personList.findPersonById(id);
+                }
+
+                case 7: {
                     System.out.println("Top student: ");
                     personList.findTopStudent().displayInfo();
                 }
                 break;
 
-                case 7: {
+                case 8: {
                     System.out.print("Enter department: ");
                     String department = sc.nextLine();
                     personList.findTeacherByDepartment(department);
                 }
                 break;
 
-                case 8: {
+                case 9: {
                     System.out.println("Exiting......");
                 }
                 break;
