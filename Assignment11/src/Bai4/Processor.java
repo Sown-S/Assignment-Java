@@ -58,6 +58,7 @@ public class Processor {
                     String id = sc.nextLine();
                     personList.findPersonById(id);
                 }
+                break;
 
                 case 7: {
                     System.out.println("Top student: ");
