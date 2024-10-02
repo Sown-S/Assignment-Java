@@ -62,8 +62,6 @@ public class Teacher extends Person {
     @Override
     public void updatePerson(String id) {
         System.out.println("\tUPDATE TEACHER INFORMATION");
-        System.out.print("Enter ID: ");
-        this.setId(sc.nextLine());
         System.out.print("Enter full name: ");
         this.setFullName(sc.nextLine());
         while (true) {
