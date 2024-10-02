@@ -85,7 +85,7 @@ public class Teacher extends Person {
         System.out.println("\tINFORMATION TEACHER");
         System.out.println("ID: " + getId());
         System.out.println("Full name: " + getFullName());
-        System.out.println("Date of birth: " + getDateOfBirth());
+        System.out.println("Date of birth: " + dateFormat.format(getDateOfBirth()));
         System.out.println("Department: " + getDepartment());
         System.out.println("Teaching subject: " + getTeachingSubject());
     }
