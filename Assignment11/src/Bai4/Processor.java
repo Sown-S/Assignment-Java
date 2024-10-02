@@ -81,7 +81,7 @@ public class Processor {
                     System.out.println("Invalid option. Please try again!");
             }
 
-        } while (choose != 8);
+        } while (choose != 9);
     }
 
 }
