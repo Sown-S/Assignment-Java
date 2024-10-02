@@ -86,7 +86,7 @@ public class Student extends Person {
         System.out.println("\tINFORMATION STUDENT");
         System.out.println("ID: " + getId());
         System.out.println("Full name: " + getFullName());
-        System.out.println("Date of birth: " + getDateOfBirth());
+        System.out.println("Date of birth: " + dateFormat.format(getDateOfBirth()));
         System.out.println("GPA: " + getGpa());
         System.out.println("Major: " + getMajor());
     }
