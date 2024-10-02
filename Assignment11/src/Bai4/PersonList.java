@@ -77,7 +77,7 @@ public class PersonList {
         for (Person person : personList) {
             if (person.getId().equals(id)) {
                 System.out.println("Information of this person");
-                return person;
+                person.displayInfo();
             }
         }
         System.out.println("No person with id " + id + " found");
