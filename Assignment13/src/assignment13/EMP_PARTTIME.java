@@ -5,27 +5,27 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-public class EMP_PARTTIME extends EMPLOYEE {
+public class EMP_FULLTIME extends EMPLOYEE {
 
-    private int numberOfWorkdays;
+    private double coefficientsSalary = CalculateSeniority();
 
-    public EMP_PARTTIME() {
+    public EMP_FULLTIME() {
     }
 
-    public EMP_PARTTIME(int numberOfWorkdays) {
-        this.numberOfWorkdays = numberOfWorkdays;
+    public EMP_FULLTIME(double coefficients_salary) {
+        this.coefficientsSalary = coefficients_salary;
     }
 
-    public int getNumberOfWorkdays() {
-        return numberOfWorkdays;
+    public double getCoefficients_salary() {
+        return coefficientsSalary;
     }
 
     public static double getBASIC_SALARY() {
         return BASIC_SALARY;
     }
 
-    public void setNumberOfWorkdays(int numberOfWorkdays) {
-        this.numberOfWorkdays = numberOfWorkdays;
+    public void setCoefficients_salary(double coefficients_salary) {
+        this.coefficientsSalary = coefficients_salary;
     }
 
     Scanner sc = new Scanner(System.in);
@@ -49,37 +49,36 @@ public class EMP_PARTTIME extends EMPLOYEE {
                 System.out.println("Wrong format! Please enter again");
             }
         }
-        System.out.print("Enter number of workdays: ");
-        this.setNumberOfWorkdays(sc.nextInt());
+        System.out.print("Enter coefficients Salary: ");
+        this.setCoefficients_salary(sc.nextDouble());
     }
 
     public void output() {
         DecimalFormat df = new DecimalFormat("#,###.00");
-        System.out.println("\tEMPLOYEE PARTTIME");
+        System.out.println("\tEMPLOYEE FULLTIME");
         System.out.println("ID: " + getEmpID());
         System.out.println("Name: " + getEmpName());
         System.out.println("Date of birth: " + dateFormat.format(getEmpDateOfBirth()));
         System.out.println("Start date: " + dateFormat.format(getStartDate()));
-        System.out.println("Number of workdays: " + getNumberOfWorkdays());
+        System.out.println("Coefficients Salary: " + getCoefficients_salary());
         System.out.println("Salary: " + df.format(CalculateSalary()));
     }
 
     @Override
     public double CalculateSalary() {
-        return BASIC_SALARY * numberOfWorkdays / 26 + CalculateAllowance();
+        return BASIC_SALARY * coefficientsSalary + CalculateAllowance();
     }
 
     @Override
     public double CalculateAllowance() {
         int seniority = CalculateSeniority();
         if (seniority >= 10) {
-            return 500000;
+            return 1000000;
         } else if (seniority >= 5) {
-            return 300000;
+            return 500000;
         } else {
             return 0;
         }
-
     }
 
 }
