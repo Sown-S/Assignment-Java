@@ -75,7 +75,7 @@ public class EMP_LIST {
         int i = 0;
         for (EMPLOYEE employee : emp_list) {
             if (employee.getEmpID().equals(id)) {
-                employee.input();
+                employee.update();
                 System.out.println("Updated successfully for employee with ID " + id);
                 i++;
                 break;
@@ -95,7 +95,6 @@ public class EMP_LIST {
             }
         }
         System.out.println("No employee wwith ID " + empID + " found");
-
     }
 
     public void find(String empID) {
@@ -123,7 +122,7 @@ public class EMP_LIST {
     public void menu() {
         EMP_LIST emp_list = new EMP_LIST();
         Scanner sc = new Scanner(System.in);
-        int choose;
+        int menu;
         do {
             System.out.println("\n\tMENU");
             System.out.println("1. Add new employee");
@@ -133,8 +132,8 @@ public class EMP_LIST {
             System.out.println("5. Display all employee");
             System.out.println("0. Exit!");
             System.out.print("Your choose: ");
-            choose = sc.nextInt();
-            switch (choose) {
+            menu = sc.nextInt();
+            switch (menu) {
                 case 1: {
                     emp_list.addNew();
                 }
@@ -173,7 +172,7 @@ public class EMP_LIST {
                     System.out.println("Invalid option. Please try again!");
             }
 
-        } while (choose != 0);
+        } while (menu != 0);
     }
 
 }
