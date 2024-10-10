@@ -1,5 +1,6 @@
 package assignment13;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -50,15 +51,39 @@ public class EMP_FULLTIME extends EMPLOYEE {
         }
         System.out.print("Enter coefficients Salary: ");
         this.setCoefficients_salary(sc.nextDouble());
+        sc.nextLine();
+    }
+
+    public void update() {
+        System.out.println("UPDATE EMPLOYEE FULLTIME");
+        System.out.print("Enter name: ");
+        this.setEmpName(sc.nextLine());
+        while (true) {
+            try {
+                System.out.print("Enter date of birth: ");
+                String dobinput = sc.nextLine();
+                this.setEmpDateOfBirth(dateFormat.parse(dobinput));
+                System.out.print("Enter start date: ");
+                String sdinput = sc.nextLine();
+                this.setStartDate(dateFormat.parse(sdinput));
+                break;
+            } catch (ParseException e) {
+                System.out.println("Wrong format! Please enter again");
+            }
+        }
+        System.out.print("Enter coefficients Salary: ");
+        this.setCoefficients_salary(sc.nextDouble());
     }
 
     public void output() {
+        DecimalFormat df = new DecimalFormat("#,###.00");
         System.out.println("\tEMPLOYEE FULLTIME");
         System.out.println("ID: " + getEmpID());
         System.out.println("Name: " + getEmpName());
         System.out.println("Date of birth: " + dateFormat.format(getEmpDateOfBirth()));
         System.out.println("Start date: " + dateFormat.format(getStartDate()));
         System.out.println("Coefficients Salary: " + getCoefficients_salary());
+        System.out.println("Salary: " + df.format(CalculateSalary()));
     }
 
     @Override
