@@ -72,8 +72,7 @@ public class EMP_PARTTIME extends EMPLOYEE {
             }
         }
         System.out.print("Enter number of workdays: ");
-        this.setNumberOfWorkdays(sc.nextInt());
-        
+        this.setNumberOfWorkdays(sc.nextInt());    
     }
 
     public void output() {
@@ -102,7 +101,6 @@ public class EMP_PARTTIME extends EMPLOYEE {
         } else {
             return 0;
         }
-
     }
 
 }
