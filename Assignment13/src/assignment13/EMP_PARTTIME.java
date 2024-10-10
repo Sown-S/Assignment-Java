@@ -5,27 +5,27 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-public class EMP_FULLTIME extends EMPLOYEE {
+public class EMP_PARTTIME extends EMPLOYEE {
 
-    private double coefficientsSalary = CalculateSeniority();
+    private int numberOfWorkdays;
 
-    public EMP_FULLTIME() {
+    public EMP_PARTTIME() {
     }
 
-    public EMP_FULLTIME(double coefficients_salary) {
-        this.coefficientsSalary = coefficients_salary;
+    public EMP_PARTTIME(int numberOfWorkdays) {
+        this.numberOfWorkdays = numberOfWorkdays;
     }
 
-    public double getCoefficients_salary() {
-        return coefficientsSalary;
+    public int getNumberOfWorkdays() {
+        return numberOfWorkdays;
     }
 
     public static double getBASIC_SALARY() {
         return BASIC_SALARY;
     }
 
-    public void setCoefficients_salary(double coefficients_salary) {
-        this.coefficientsSalary = coefficients_salary;
+    public void setNumberOfWorkdays(int numberOfWorkdays) {
+        this.numberOfWorkdays = numberOfWorkdays;
     }
 
     Scanner sc = new Scanner(System.in);
@@ -49,36 +49,60 @@ public class EMP_FULLTIME extends EMPLOYEE {
                 System.out.println("Wrong format! Please enter again");
             }
         }
-        System.out.print("Enter coefficients Salary: ");
-        this.setCoefficients_salary(sc.nextDouble());
+        System.out.print("Enter number of workdays: ");
+        this.setNumberOfWorkdays(sc.nextInt());
+        sc.nextLine();
+    }
+    
+    public void update() {
+        System.out.println("UPDATE EMPLOYEE PARTTIME");
+        System.out.print("Enter name: ");
+        this.setEmpName(sc.nextLine());
+        while (true) {
+            try {
+                System.out.print("Enter date of birth: ");
+                String dobinput = sc.nextLine();
+                this.setEmpDateOfBirth(dateFormat.parse(dobinput));
+                System.out.print("Enter start date: ");
+                String sdinput = sc.nextLine();
+                this.setStartDate(dateFormat.parse(sdinput));
+                break;
+            } catch (ParseException e) {
+                System.out.println("Wrong format! Please enter again");
+            }
+        }
+        System.out.print("Enter number of workdays: ");
+        this.setNumberOfWorkdays(sc.nextInt());
+        
     }
 
     public void output() {
         DecimalFormat df = new DecimalFormat("#,###.00");
-        System.out.println("\tEMPLOYEE FULLTIME");
+        System.out.println("\tEMPLOYEE PARTTIME");
         System.out.println("ID: " + getEmpID());
         System.out.println("Name: " + getEmpName());
         System.out.println("Date of birth: " + dateFormat.format(getEmpDateOfBirth()));
         System.out.println("Start date: " + dateFormat.format(getStartDate()));
-        System.out.println("Coefficients Salary: " + getCoefficients_salary());
+        System.out.println("Number of workdays: " + getNumberOfWorkdays());
         System.out.println("Salary: " + df.format(CalculateSalary()));
     }
 
     @Override
     public double CalculateSalary() {
-        return BASIC_SALARY * coefficientsSalary + CalculateAllowance();
+        return BASIC_SALARY * numberOfWorkdays / 26 + CalculateAllowance();
     }
 
     @Override
     public double CalculateAllowance() {
         int seniority = CalculateSeniority();
         if (seniority >= 10) {
-            return 1000000;
-        } else if (seniority >= 5) {
             return 500000;
+        } else if (seniority >= 5) {
+            return 300000;
         } else {
             return 0;
         }
+
     }
 
 }
