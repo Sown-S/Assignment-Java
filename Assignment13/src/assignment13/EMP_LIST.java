@@ -131,6 +131,7 @@ public class EMP_LIST {
             System.out.println("3. Delete employee by ID");
             System.out.println("4. Find employee by ID ");
             System.out.println("5. Display all employee");
+            System.out.println("0. Exit!");
             System.out.print("Your choose: ");
             choose = sc.nextInt();
             switch (choose) {
