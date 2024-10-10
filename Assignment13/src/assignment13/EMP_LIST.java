@@ -94,7 +94,7 @@ public class EMP_LIST {
                 return;
             }
         }
-        System.out.println("No employee wwith ID " + empID + " found");
+        System.out.println("No employee with ID " + empID + " found");
     }
 
     public void find(String empID) {
@@ -120,7 +120,7 @@ public class EMP_LIST {
     }
 
     public void menu() {
-        EMP_LIST emp_list = new EMP_LIST();
+        EMP_LIST emplist = new EMP_LIST();
         Scanner sc = new Scanner(System.in);
         int menu;
         do {
@@ -133,33 +133,34 @@ public class EMP_LIST {
             System.out.println("0. Exit!");
             System.out.print("Your choose: ");
             menu = sc.nextInt();
+            sc.nextLine();
             switch (menu) {
                 case 1: {
-                    emp_list.addNew();
+                    emplist.addNew();
                 }
                 break;
 
                 case 2: {
-                    emp_list.update();
+                    emplist.update();
                 }
                 break;
 
                 case 3: {
                     System.out.print("Enter id to delete: ");
                     String id = sc.nextLine();
-                    emp_list.delete(id);
+                    emplist.delete(id);
                 }
                 break;
 
                 case 4: {
                     System.out.print("Enter id to find: ");
                     String id = sc.nextLine();
-                    emp_list.find(id);
+                    emplist.find(id);
                 }
                 break;
 
                 case 5: {
-                    emp_list.display();
+                    emplist.display();
                 }
                 break;
 
