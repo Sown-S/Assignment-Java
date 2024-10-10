@@ -1,5 +1,6 @@
 package assignment13;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -53,12 +54,14 @@ public class EMP_PARTTIME extends EMPLOYEE {
     }
 
     public void output() {
+        DecimalFormat df = new DecimalFormat("#,###.00");
         System.out.println("\tEMPLOYEE PARTTIME");
         System.out.println("ID: " + getEmpID());
         System.out.println("Name: " + getEmpName());
         System.out.println("Date of birth: " + dateFormat.format(getEmpDateOfBirth()));
         System.out.println("Start date: " + dateFormat.format(getStartDate()));
         System.out.println("Number of workdays: " + getNumberOfWorkdays());
+        System.out.println("Salary: " + df.format(CalculateSalary()));
     }
 
     @Override
