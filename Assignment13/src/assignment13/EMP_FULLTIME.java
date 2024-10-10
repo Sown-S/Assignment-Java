@@ -56,8 +56,8 @@ public class EMP_FULLTIME extends EMPLOYEE {
         System.out.println("\tEMPLOYEE FULLTIME");
         System.out.println("ID: " + getEmpID());
         System.out.println("Name: " + getEmpName());
-        System.out.println("Date of birth: " + getEmpDateOfBirth());
-        System.out.println("Start date: " + getStartDate());
+        System.out.println("Date of birth: " + dateFormat.format(getEmpDateOfBirth()));
+        System.out.println("Start date: " + dateFormat.format(getStartDate()));
         System.out.println("Coefficients Salary: " + getCoefficients_salary());
     }
 
