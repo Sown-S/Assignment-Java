@@ -62,7 +62,6 @@ abstract class EMPLOYEE implements IEMPLOYEE {
 
     public int CalculateSeniority() {
         if (getStartDate() == null) {
-            System.out.println("Start date is not set. Please enter a valid start date.");
             return 0;
         }
         Calendar current = Calendar.getInstance();
